@@ -10,7 +10,7 @@ rvm:
   - "jruby-19mode"
   - "jruby-head"
 script:
-  bundle exec rake test
+  bundle exec rake spec
 
 # These versions do not yet work on OS X on Travis
 # (last tested: 2015-09)
