@@ -1,7 +1,7 @@
 module DocumentCloud
   class Document
     attr_reader :id, :title, :access, :pages, :description, :source, :mentions,
-      :canonical_url, :language, :display_language, :created_at, :updated_at
+      :canonical_url, :language, :display_language, :data, :created_at, :updated_at
     
     def initialize(attrs={})
       @id               = attrs[:id]
@@ -17,6 +17,7 @@ module DocumentCloud
       @updated_at       = DateTime.parse(attrs[:updated_at])
       @resources        = attrs[:resources]
       @mentions         = attrs[:mentions]
+      @data             = attrs[:data]
     end
     
     def pdf
@@ -46,6 +47,10 @@ module DocumentCloud
     def entities
       @entities ||= DocumentCloud.entities(@id)
       @entities
+    end
+    
+    def data
+      @resources[:data]
     end
     
   end
